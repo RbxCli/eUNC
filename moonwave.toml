@@ -8,10 +8,6 @@ changelog = true
 section = "Libraries"
 tag = "Library"
 
-[[classOrder]]
-section = "Extensions"
-tag = "Extension"
-
 [docusaurus]
 onBrokenLinks = "throw"
 onBrokenMarkdownLinks = "warn"
