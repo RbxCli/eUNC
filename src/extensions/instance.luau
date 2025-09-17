@@ -6,6 +6,8 @@
 ]=]
 local instance = {}
 
+type instance = {}
+
 --[=[
     @prop Name string
     @within instance
@@ -59,14 +61,12 @@ end
 --[=[
     Attempts to unlock the reference to the underlying instance. After this call, operations with the instance may crash, error or trigger undefined behaviour.
 
-    @return boolean -- Whether the instance was unlocked successfully.
-
     :::info Safety
         Unlocking releases the reference for the tool to clear it up. It will not 'unlock' the object on the actual engine. 
     :::
 ]=]
-function instance:Unlock(): boolean
-	return false
+function instance:Unlock(): ()
+	return
 end
 
 --[=[
@@ -83,5 +83,158 @@ end
 function instance:Lock(): boolean
 	return false
 end
+
+--[=[
+    Checks the lock status of the underlying instance.
+
+    @return boolean -- Whether the instance is currently locked.
+]=]
+function instance:IsLocked(): boolean
+	return false
+end
+
+--[=[
+    Retrieves the children for the instance. 
+
+    @return { instance } -- All children of the instance
+
+    :::info Locking
+        This function requires locking to succeed.
+    :::
+]=]
+function instance:GetChildren(): { instance }
+	return table.create(0)
+end
+
+--[=[
+    Retrieves the descendants for the instance. 
+
+    @return { instance } -- All descendants of the instance
+
+    :::warning Performance
+        This function may be **very** slow. 
+
+        Avoid using it if possible.
+    :::
+
+    :::info Locking
+        This function requires locking to succeed.
+    :::
+]=]
+function instance:GetDescendants(): { instance }
+	return table.create(0)
+end
+
+--[=[
+    Retrieves the fully qualified name for the given instance.
+
+    @return string -- The fully qualified name for the instance.
+
+    :::info Locking
+        This function requires locking to succeed.
+    :::
+]=]
+function instance:GetFullName(): string
+	return ""
+end
+
+--[=[
+    Checks the immediate Class of the object.
+
+    @param className string -- The expected class name 
+    @return boolean -- Whether the given class name is equal to the one the instance possesses.
+
+    :::info Locking
+        This function requires locking to succeed.
+    :::
+]=]
+function instance:OfClass(className: string): boolean
+	return false
+end
+
+--[=[
+    Attempts to find the first child on the instance which matches the given name.
+
+    @param name string -- The instance name
+    @return instance? -- An instance, which may be null if it was not found.
+
+
+    :::warning Performance
+        This function may silently performs GetChildren for every invocation, if you are going to be repeatedly getting children, and you know they may not suddenly change, it is better you cache the list and retrieve them yourself.
+    :::
+    
+    :::info Locking
+        This function requires locking to succeed.
+    :::
+]=]
+function instance:FindFirstChild(name: string): instance?
+	return nil
+end
+
+--[=[
+    Attempts to find the first child on the instance which matches the given class name.
+
+    @param className string -- The class name of the target instance
+    @return instance? -- An instance, which may be null if it was not found.
+
+
+    :::warning Performance
+        This function may silently performs GetChildren for every invocation, if you are going to be repeatedly getting children, and you know they may not suddenly change, it is better you cache the list and retrieve them yourself.
+    :::
+    
+    :::info Locking
+        This function requires locking to succeed.
+    :::
+]=]
+function instance:FindFirstChildOfClass(className: string): instance?
+	return nil
+end
+
+--[=[
+    Attempts to find the first child on the instance whose class matches or inherits from the given class.
+
+    @param className string -- The class name of the target instance
+    @return instance? -- An instance, which may be null if it was not found.
+
+
+    :::warning Performance
+        This function may silently performs GetChildren for every invocation, if you are going to be repeatedly getting children, and you know they may not suddenly change, it is better you cache the list and retrieve them yourself.
+    :::
+    
+    :::info Locking
+        This function requires locking to succeed.
+    :::
+]=]
+function instance:FindFirstChildWhichIsA(className: string): instance?
+	return nil
+end
+
+--[=[
+    Attempts to retrieve the attribute with the given name.
+
+    @param attributeName string -- The name of the target attribute.
+    @return any? -- The value of the attribute, which may be nil.
+
+    :::info Locking
+        This function requires locking to succeed.
+    :::
+]=]
+function instance:GetAttribute(attributeName: string): any?
+	return nil
+end
+
+--[=[
+    Attempts to retrieve all attributes of the instance.
+
+    @return { [string]: any? } -- A dictionary containinig all attributes available with their names as the key.
+
+    :::info Locking
+        This function requires locking to succeed.
+    :::
+]=]
+function instance:GetAttributes(): { [string]: any }
+	return {}
+end
+
 
 return instance
