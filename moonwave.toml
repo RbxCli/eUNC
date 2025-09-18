@@ -1,4 +1,4 @@
-title = "eUNC"                           # From Git
+title = "eUNC"                                # From Git
 gitRepoUrl = "https://github.com/RbxCli/eUNC" # From Git
 
 gitSourceBranch = "dev"
@@ -7,6 +7,10 @@ changelog = true
 [[classOrder]]
 section = "Libraries"
 tag = "Library"
+
+[[classOrder]]
+section = "Classes"
+tag = "Class"
 
 [docusaurus]
 onBrokenLinks = "throw"

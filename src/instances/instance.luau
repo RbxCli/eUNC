@@ -3,6 +3,7 @@
 --[=[
     Contains methods and fields that are required by the standard in Instance objects. 
     @class instance
+    @tag Class
 ]=]
 local instance = {}
 
