@@ -16,7 +16,7 @@ local eunc = {}
         The bits for the capabilities are marked and documented [here](/docs/capabilities)
     :::
 ]=]
-function eunc.GetCapabilities(): number
+function eunc.get_capabilities(): number
     return 0
 end
 
@@ -29,8 +29,12 @@ end
     :::info Capabilities
         The bits for the capabilities are marked and documented [here](/docs/capabilities)
     :::
+
+    :::info Security
+        This function is related to the security features in eUNC. You can read about them [here](/docs/security)
+    :::
 ]=]
-function eunc.RequestCapabilityAccess(capability: number): boolean
+function eunc.request_capability_access(capability: number): boolean
     return false
 end
 
