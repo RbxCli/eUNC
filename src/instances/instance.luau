@@ -60,41 +60,6 @@ function instance:IsA(className: string): boolean
 end
 
 --[=[
-    Attempts to unlock the reference to the underlying instance. After this call, operations with the instance may crash, error or trigger undefined behaviour.
-
-    :::info Safety
-        Unlocking releases the reference for the tool to clear it up. It will not 'unlock' the object on the actual engine. 
-    :::
-]=]
-function instance:Unlock(): ()
-	return
-end
-
---[=[
-    Attempts to lock the reference to the underlying instance. After this call, all operations with it are valid. This guarantees no errors when calling functions.
-    
-    @return boolean -- Whether the instance was locked successfully.
-
-    :::info Safety
-        Locking guarantees that state of the object is maintained internally.
-        
-        This, however, does not make the object live longer, it just pins it on the tool's internal structures, keeping any relevant state and caches going.
-    :::
-]=]
-function instance:Lock(): boolean
-	return false
-end
-
---[=[
-    Checks the lock status of the underlying instance.
-
-    @return boolean -- Whether the instance is currently locked.
-]=]
-function instance:IsLocked(): boolean
-	return false
-end
-
---[=[
     Retrieves the children for the instance. 
 
     @return { instance } -- All children of the instance
