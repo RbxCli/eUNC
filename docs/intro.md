@@ -13,7 +13,6 @@ With eUNC, we attempt to change that for the better, by directly tackling the is
 The eUNC spec has many parts to it.
 
 - Security
-- Capbilities
 - Libraries
 - Classes
 
