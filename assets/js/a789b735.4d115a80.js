@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[715],{9517:e=>{e.exports=JSON.parse('{"functions":[],"properties":[],"types":[],"name":"eunc","desc":"Contains functions related explicitly to standard compliance.","tags":["Library"],"source":{"line":8,"path":"src/libraries/eunc.luau"}}')}}]);
