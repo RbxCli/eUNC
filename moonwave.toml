@@ -1,4 +1,4 @@
-title = "eUNC"                                # From Git
+title = "RbxCli"                                # From Git
 gitRepoUrl = "https://github.com/RbxCli/eUNC" # From Git
 
 gitSourceBranch = "dev"
@@ -12,6 +12,10 @@ tag = "Library"
 section = "Classes"
 tag = "Class"
 
+[[classOrder]]
+section = "Instances"
+tag = "Instances"
+
 [docusaurus]
 onBrokenLinks = "throw"
 onBrokenMarkdownLinks = "warn"
@@ -22,7 +26,7 @@ organizationName = "RbxCli"
 projectName = "eUNC"
 url = "https://RbxCli.github.io"
 baseUrl = "/eUNC"
-tagline = "The external scripting convention"
+tagline = "Built for excellence. Built to work."
 
 [footer]
 style = "dark"
@@ -40,13 +44,13 @@ enabled = true
 includeReadme = true
 
 [[home.features]]
-title = "Simple"
-description = "eUNC promises simplicity, reassembling the native Roblox API as much as possible"
+title = "Simplicity"
+description = "RbxCli promises simplicity, reassembling the native Roblox API as much as possible"
 
 [[home.features]]
-title = "Performant"
-description = "eUNC takes performance seriously, with an API built from the ground-up to allow for a flexible and performant design"
+title = "Performance"
+description = "RbxCli takes performance seriously. We have built the API from the ground up with this detail in mind."
 
 [[home.features]]
-title = "Correct"
-description = "eUNC focuses on maintaining the correctness of every operation done externally. No more random errors or non-working scripts!"
+title = "Correctness"
+description = "RbxCli focuses on maintaining the correctness of every operation done externally. Everything must be properly handled."

@@ -1,19 +1,17 @@
 # Introduction
 
-eUNC is a standard that attempts to unify and standardize the requirements and things involved in developing scripts for external tooling.
+RbxCli is an external tool for the ROBLOX engine meant to modify and gain an advantage while in gameplay as well as to perform analysis on several games, their structures and other ways they achieve effects, gameplay or mechanics.
 
-External tooling most notably have severe issues when it comes to these. Environments are always non-standard, all over the place, with little to no information about how they behave or anything.
+RbxCli contains a Luau VM, the VM itself holds a heavy resemblance and familiarity to the Roblox Luau API, however there are numerous differences, in between these are the following.
 
-eUNC attempts to mimic and replicate the ROBLOX environment as much as possible while staying performant and practical for the end user, this means that it is expected for basic ROBLOX structures to be present.
+- No Events Framework
+    RbxCli's method of working does not allow for any events to occur unless they are fired explicitly from within RbxCli. There are no Roblox related events, such as `.ChildAdded`, `.DescendantAdded`, .... This is due to the method RbxCLi operates, which would make performing these events slower and non-benefitial.
 
-With eUNC, we attempt to change that for the better, by directly tackling the issue at hand and standardizing the environment that scripts are developed in, providing defacto libraries and functionality in a standard manner.
+- Modified/Dissimilar behaviour
+    RbxCli's Luau API, while holding resemblance to the original Roblox Luau API, however, the behaviour between both APIs is not guaranteed to be the same. These differences will be laid out on the documentations of the API if they could amount to a hit on performance, usability or other details..
 
 ---
 
-The eUNC spec has many parts to it.
+Any other tool can adapt the APIs RbxCli has defined, however we will not make any compromises to support such.
 
-- Security
-- Libraries
-- Classes
-
-All of them serve the purpose of detailing how to make your tooling compliant with the standard if warranted. This documentation will cover all of them.
+RbxCli's API is designed to not change in order to maintain as much compatibility as possible with scripts, every aspect of it has been designed with this in mind, once an API is marked public and published it will __not__ be removed, only deprecated.

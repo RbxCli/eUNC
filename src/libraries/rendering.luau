@@ -20,10 +20,10 @@ local rendering = {}
     :::warning
         This function may support positions that are slightly off-screen on some implementations, these yield matematically correct projections, but the X and Y values may be extremely high.
 
-        For off-screen coordinates, the boolean present on the tuple should be true. For a more accurate check use rendering.IsOnScreen
+        For off-screen coordinates, the boolean present on the tuple should be true. For a more accurate check use rendering.is_on_screen
     :::
 ]=]
-function rendering.WorldToScreen(partOrPosition: BasePart | Vector3): (Vector2, boolean)
+function rendering.world_to_screen(partOrPosition: BasePart | Vector3): (Vector2, boolean)
 	return Vector2.zero, false
 end
 
@@ -37,7 +37,7 @@ end
         The underlying implementation may vary for Part objects. Some implementations may cache positions and update them periodically, or they may retrieve the position on call.
     :::
 ]=]
-function rendering.IsOnScreen(partOrPosition: BasePart | Vector3): boolean
+function rendering.is_on_screen(partOrPosition: BasePart | Vector3): boolean
 	return false
 end
 

@@ -1,11 +1,7 @@
 # Security
 
-Some APIs present within the eUNC standard are considered **high risk**, as they provide script programmers the chance to change, read or make potentially risky actions with user data.
+Some APIs present within RbxCli are considered **high risk**, as they provide script programmers the possibility to read and write potential user data.
 
-APIs deemed such have an extra step to allow their usage. Developers must put in place reasonable and sufficient limitations on using the library and related functions making use of either:
+APIs deemed to be of **high risk** require reasonable, sufficient steps to be enabled, such as checkboxes and warnings once enabled.
 
-- Permissions System
-- Checkboxes on the UI
-- ... any other reasonable measure
-
-which would prevent innocent users from executing potentially malicious scripts.
+This is made to prevent users from suffering potential consequences from potential malicious actors, this also allows us to include and allow our users to publish their own intellectual property, such as scripts, with their own protections.

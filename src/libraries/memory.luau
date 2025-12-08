@@ -9,6 +9,7 @@
 local memory = {}
 
 --- @class ProcessReadResult
+--- @tag Class
 --- Defines the read result statuses for memory reading operations.
 local ProcessReadResult = {
 	PagedOut = 0, --- @field PagedOut number The memory region was outside of the process's Working Set.
@@ -17,6 +18,7 @@ local ProcessReadResult = {
 }
 
 --- @class ProcessWriteResult
+--- @tag Class
 --- Defines the write result statuses for memory writing operations.
 local ProcessWriteResult = {}
 
