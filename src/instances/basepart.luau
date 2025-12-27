@@ -96,4 +96,13 @@ basePart.CanQuery = false
 ]=]
 basePart.CanTouch = false
 
+--[=[
+    @prop NetworkOwnerV3 RaknetID
+    @within BasePart
+    @external RaknetID /docs/Roblox/NetworkIds
+
+    The RakNet ID for the owner of this part.
+]=]
+basePart.NetworkOwnerV3 = 0
+
 return basePart
