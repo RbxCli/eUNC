@@ -9,16 +9,33 @@
 local memory = {}
 
 --- @class ProcessReadResult
---- @tag Class
+--- @tag Library
 --- Defines the read result statuses for memory reading operations.
 local ProcessReadResult = {
-	PagedOut = 0, --- @field PagedOut number The memory region was outside of the process's Working Set.
-	Successful = 1, --- @field Successful number The memory read was successful.
-	Failed = 2, --- @field Failed number The memory read failed at the API level (Kernel/Win32).
+	--- @prop PagedOut number
+	--- @within ProcessReadResult
+	--- @readonly
+	--- The memory region was outside of the process's Working Set.
+	PagedOut = 0,
+	--- @prop Successful number
+	--- @within ProcessReadResult
+	--- @readonly
+	--- The memory read was successful.
+	Successful = 1,
+	--- @prop Failed number
+	--- @within ProcessReadResult
+	--- @readonly
+	--- The memory read failed at the API level (Kernel/Win32).
+	Failed = 2,
+	--- @prop PartialRead number
+	--- @within ProcessReadResult
+	--- @readonly
+	--- The memory read was only completed partially, not completely (Kernel/Win32).
+	PartialRead = 3,
 }
 
 --- @class ProcessWriteResult
---- @tag Class
+--- @tag Library
 --- Defines the write result statuses for memory writing operations.
 local ProcessWriteResult = {}
 
@@ -304,11 +321,7 @@ end
     @param endAddress number? -- An optional ending address to stop the scan at. If not provided, the scan will go until the end of the process memory. This parameter is ignored if startAddress is not provided.
     @return (number, { number }?) -- A tuple containing first a status code (ProcessReadResult) representing if the operation was successful, and second containing the list of matches found.
 ]=]
-function memory.scan_signature(
-	signature: string,
-	startAddress: number?,
-	endAddress: number?
-): (number, { number }?)
+function memory.scan_signature(signature: string, startAddress: number?, endAddress: number?): (number, { number }?)
 	return 0, {}
 end
 
