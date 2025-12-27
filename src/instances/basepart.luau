@@ -67,10 +67,9 @@ basePart.NetworkIsSleeping = false
     @prop Anchored boolean
     @within BasePart
     
-    Whether or not the Part is collidable within the Physics Engine.
+    Whether or not the Part is being simulated by the Physics Engine.
 ]=]
 basePart.Anchored = false
-
 
 --[=[
     @prop CanCollide boolean
