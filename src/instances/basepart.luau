@@ -104,4 +104,21 @@ basePart.CanTouch = false
 ]=]
 basePart.NetworkOwnerV3 = 0
 
+--[=[
+    @prop AssemblyLinearVelocity Vector3
+    @within BasePart
+
+    The linear velocity of the part in the assembly.
+]=]
+basePart.AssemblyLinearVelocity = 0
+
+--[=[
+    @prop AssemblyAngularVelocity Vector3
+    @within BasePart
+
+    The angular velocity of the part in the assembly.
+]=]
+basePart.AssemblyAngularVelocity = Vector3.new()
+
+
 return basePart
