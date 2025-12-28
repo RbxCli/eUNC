@@ -74,4 +74,22 @@ function eunc.get_product_information(): ProductInformation
 	}
 end
 
+--[=[
+    Displays a notification using the built-in User Interface and it's notification system.
+
+    @param content string -- The content of the notification.
+    @param timeInSeconds number -- The amount of time in seconds the notification should be displayed for. Defaults to 5 seconds. Must be greater than 0.
+    @within rbxcli
+]=]
+function eunc.display_notification(content: string, timeInSeconds: number?): () end
+
+--[=[
+    Attempts to teleport the local player to the given position in the world.
+
+    @param pos Vector3 -- The position to teleport the local player to, in global space.
+    @within rbxcli
+    @yields
+]=]
+function eunc.teleport_local_player(pos: Vector3): () end
+
 return eunc
