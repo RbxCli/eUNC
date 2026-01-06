@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[3922],{17108:e=>{e.exports=JSON.parse('{"functions":[],"properties":[],"types":[],"name":"ProcessReadResult","desc":"Defines the read result statuses for memory reading operations.\\r","tags":["Library"],"source":{"line":14,"path":"src/libraries/memory.luau"}}')}}]);

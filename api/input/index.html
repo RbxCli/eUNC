@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-moonwave plugin-id-moonwave" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">input | RbxCli</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://RbxCli.github.io/eUNC/api/input"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="input | RbxCli"><meta data-rh="true" name="description" content="The input library provides low-level simulation of keyboard and mouse events.
+Inputs are synthesized to the Roblox window."><meta data-rh="true" property="og:description" content="The input library provides low-level simulation of keyboard and mouse events.
+Inputs are synthesized to the Roblox window."><link data-rh="true" rel="canonical" href="https://RbxCli.github.io/eUNC/api/input"><link data-rh="true" rel="alternate" href="https://RbxCli.github.io/eUNC/api/input" hreflang="en"><link data-rh="true" rel="alternate" href="https://RbxCli.github.io/eUNC/api/input" hreflang="x-default"><link rel="stylesheet" href="/eUNC/assets/css/styles.5cbed574.css">
+<script src="/eUNC/assets/js/runtime~main.47df4296.js" defer="defer"></script>
+<script src="/eUNC/assets/js/main.823f7663.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();null!==e?t(e):window.matchMedia("(prefers-color-scheme: dark)").matches?t("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,t("light"))}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/eUNC/"><b class="navbar__title text--truncate">RbxCli</b></a><a class="navbar__item navbar__link" href="/eUNC/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/eUNC/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/RbxCli/eUNC" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/eUNC/api/ProcessReadResult">Libraries</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/eUNC/api/ProcessReadResult">​Process​Read​Result</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/eUNC/api/ProcessWriteResult">​Process​Write​Result</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/eUNC/api/global">global</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/eUNC/api/input">input</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/eUNC/api/memory">memory</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/eUNC/api/physics">physics</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/eUNC/api/rbxcli">rbxcli</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/eUNC/api/rendering">rendering</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/eUNC/api/ProductInformation">Classes</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/eUNC/api/BasePart">Instances</a></div></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">input</span></h1><div class="luaClassTags_EipM"><span class="docTag__6UZ" style="border-color:#218c74;color:#218c74">Library</span></div><div>
+<p>
+  The input library provides low-level simulation of keyboard and mouse events.
+  Inputs are synthesized to the Roblox window.
+</p>
+</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="key_down"><code style="text-decoration:none">key_down</code><a href="#key_down" class="hash-link" aria-label="Direct link to key_down" title="Direct link to key_down">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L18"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">key_down</code><code>(</code><div class="inset_uKQm"><div><code>key<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>The Virtual Key (VK) code of the key.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Presses and holds a keyboard key until key_up is called.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr><tr><td>&quot;Key is already pressed&quot;</td><td>The key is already &#x27;held down&#x27;.</td></tr><tr><td>&quot;Invalid or unsupported key&quot;</td><td>The VK code was invalid or is not supported.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="key_up"><code style="text-decoration:none">key_up</code><a href="#key_up" class="hash-link" aria-label="Direct link to key_up" title="Direct link to key_up">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L29"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">key_up</code><code>(</code><div class="inset_uKQm"><div><code>key<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>The Virtual Key (VK) code of the key.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Releases a previously pressed keyboard key.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr><tr><td>&quot;Key is not pressed&quot;</td><td>The key is already &#x27;released&#x27;.</td></tr><tr><td>&quot;Invalid or unsupported key&quot;</td><td>The VK code was invalid or is not supported.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="key_click"><code style="text-decoration:none">key_click</code><a href="#key_click" class="hash-link" aria-label="Direct link to key_click" title="Direct link to key_click">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L39"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">key_click</code><code>(</code><div class="inset_uKQm"><div><code>key<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>The Virtual Key (VK) code of the key.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Presses and releases a keyboard key in a single call.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr><tr><td>&quot;Invalid or unsupported key&quot;</td><td>The VK code was invalid or is not supported.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="is_key_down"><code style="text-decoration:none">is_key_down</code><a href="#is_key_down" class="hash-link" aria-label="Direct link to is_key_down" title="Direct link to is_key_down">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L50"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">is_key_down</code><code>(</code><div class="inset_uKQm"><div><code>key<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>The Virtual Key (VK) code of the key.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>True if the key is currently held down.</p>
+</span></span></div><div>
+<p>Returns whether the specified key is currently pressed according to the internal library state.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr><tr><td>&quot;Invalid or unsupported key&quot;</td><td>The VK code was invalid or is not supported.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="mouse_down"><code style="text-decoration:none">mouse_down</code><a href="#mouse_down" class="hash-link" aria-label="Direct link to mouse_down" title="Direct link to mouse_down">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L63"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">mouse_down</code><code>(</code><div class="inset_uKQm"><div><code>button<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>The button code (e.g., 1 for Left, 2 for Right).</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Presses and holds a mouse button.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr><tr><td>&quot;Mouse button is already pressed&quot;</td><td>The mouse button is already &#x27;held down&#x27;.</td></tr><tr><td>&quot;Invalid or unsupported mouse button&quot;</td><td>The Mouse VK code was invalid or is not supported.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="mouse_up"><code style="text-decoration:none">mouse_up</code><a href="#mouse_up" class="hash-link" aria-label="Direct link to mouse_up" title="Direct link to mouse_up">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L74"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">mouse_up</code><code>(</code><div class="inset_uKQm"><div><code>button<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>The button code (e.g., 1 for Left, 2 for Right).</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Releases a previously pressed mouse button.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr><tr><td>&quot;Mouse button is not pressed&quot;</td><td>The mouse button is already &#x27;released&#x27;.</td></tr><tr><td>&quot;Invalid or unsupported mouse button&quot;</td><td>The Mouse VK code was invalid or is not supported.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="is_mouse_down"><code style="text-decoration:none">is_mouse_down</code><a href="#is_mouse_down" class="hash-link" aria-label="Direct link to is_mouse_down" title="Direct link to is_mouse_down">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L85"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">is_mouse_down</code><code>(</code><div class="inset_uKQm"><div><code>button<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>The button code.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>True if the button is held down.</p>
+</span></span></div><div>
+<p>Returns whether the specified mouse button is currently pressed.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr><tr><td>&quot;Invalid or unsupported mouse button&quot;</td><td>The Mouse VK code was invalid or is not supported.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="mouse_click"><code style="text-decoration:none">mouse_click</code><a href="#mouse_click" class="hash-link" aria-label="Direct link to mouse_click" title="Direct link to mouse_click">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L99"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">mouse_click</code><code>(</code><div class="inset_uKQm"><div><code>button<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The button code.</p>
+</span></span></div><div><code>count<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+<p>How many times to click (defaults to 1).</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Performs one or more mouse clicks sequentially.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr><tr><td>&quot;Click count must be greater than 0&quot;</td><td>The count parameter was less than 1 or equal to 0.</td></tr><tr><td>&quot;Invalid or unsupported mouse button&quot;</td><td>The Mouse VK code was invalid or is not supported.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="mouse_move_absolute"><code style="text-decoration:none">mouse_move_absolute</code><a href="#mouse_move_absolute" class="hash-link" aria-label="Direct link to mouse_move_absolute" title="Direct link to mouse_move_absolute">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L108"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">mouse_move_absolute</code><code>(</code><div class="inset_uKQm"><div><code>position<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector2" target="_blank" rel="noopener noreferrer">Vector2<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The absolute XY screen coordinates.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Moves the mouse cursor instantly to the given absolute screen position.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="mouse_move_relative"><code style="text-decoration:none">mouse_move_relative</code><a href="#mouse_move_relative" class="hash-link" aria-label="Direct link to mouse_move_relative" title="Direct link to mouse_move_relative">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L117"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">mouse_move_relative</code><code>(</code><div class="inset_uKQm"><div><code>offset<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector2" target="_blank" rel="noopener noreferrer">Vector2<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The XY offset to move by.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Moves the mouse cursor instantly by the given offset relative to its current position.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="mouse_move_tween"><code style="text-decoration:none">mouse_move_tween</code><a href="#mouse_move_tween" class="hash-link" aria-label="Direct link to mouse_move_tween" title="Direct link to mouse_move_tween">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L129"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">mouse_move_tween</code><code>(</code><div class="inset_uKQm"><div><code>position<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector2" target="_blank" rel="noopener noreferrer">Vector2<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The target absolute XY position.</p>
+</span></span></div><div><code>timeInSeconds<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>The duration of the movement.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>
+  Smoothly moves the mouse cursor to the target position over a period of time.
+  This function yields the current thread until the move is complete.
+</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr><tr><td>&quot;Time must be a positive number&quot;</td><td>The timeInSeconds parameter was not a positive number.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="mouse_move_instance"><code style="text-decoration:none">mouse_move_instance</code><a href="#mouse_move_instance" class="hash-link" aria-label="Direct link to mouse_move_instance" title="Direct link to mouse_move_instance">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L140"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">mouse_move_instance</code><code>(</code><div class="inset_uKQm"><div><code>instance<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/eUNC/api/Instance">Instance</a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The GuiObject to target.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Moves the mouse cursor instantly to the center of the given Roblox UI instance.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr><tr><td>&quot;Instance must be a valid UI Instance&quot;</td><td>The object was not an Instance object of type GuiObject.</td></tr><tr><td>&quot;Instance is not visible or has no absolute position&quot;</td><td>The GuiObject was not visible or had no absolute position.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="mouse_move_instance_tween"><code style="text-decoration:none">mouse_move_instance_tween</code><a href="#mouse_move_instance_tween" class="hash-link" aria-label="Direct link to mouse_move_instance_tween" title="Direct link to mouse_move_instance_tween">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L154"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">mouse_move_instance_tween</code><code>(</code><div class="inset_uKQm"><div><code>instance<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/eUNC/api/Instance">Instance</a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The GuiObject to target.</p>
+</span></span></div><div><code>timeInSeconds<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>The duration of the movement.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>
+  Smoothly moves the mouse cursor to the center of the given Roblox UI instance.
+  This function yields the current thread until the move is complete.
+</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr><tr><td>&quot;Instance must be a valid UI Instance&quot;</td><td>The object was not an Instance object of type GuiObject.</td></tr><tr><td>&quot;Instance is not visible or has no absolute position&quot;</td><td>The GuiObject was not visible or had no absolute position.</td></tr><tr><td>&quot;Time must be a positive number&quot;</td><td>The timeInSeconds parameter was not a positive number.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="mouse_click_instance"><code style="text-decoration:none">mouse_click_instance</code><a href="#mouse_click_instance" class="hash-link" aria-label="Direct link to mouse_click_instance" title="Direct link to mouse_click_instance">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L167"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">mouse_click_instance</code><code>(</code><div class="inset_uKQm"><div><code>instance<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/eUNC/api/Instance">Instance</a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The GuiObject to target.</p>
+</span></span></div><div><code>button<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>The button VK code.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Moves the mouse cursor to the center of the given Roblox UI instance and performs a mouse click.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr><tr><td>&quot;Instance must be a valid UI Instance&quot;</td><td>The object was not an Instance object of type GuiObject.</td></tr><tr><td>&quot;Invalid or unsupported mouse button&quot;</td><td>The Mouse VK code was invalid or is not supported.</td></tr><tr><td>&quot;Instance is not visible or interactable&quot;</td><td>The GuiObject was not visible or isn&#x27;t interactable.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="mouse_scroll"><code style="text-decoration:none">mouse_scroll</code><a href="#mouse_scroll" class="hash-link" aria-label="Direct link to mouse_scroll" title="Direct link to mouse_scroll">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L176"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">mouse_scroll</code><code>(</code><div class="inset_uKQm"><div><code>delta<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>The amount to scroll (positive for up, negative for down).</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Scrolls the mouse wheel by the given delta amount.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;Roblox is not focused&quot;</td><td>Roblox&#x27;s windows is not the focused window.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="is_window_focused"><code style="text-decoration:none">is_window_focused</code><a href="#is_window_focused" class="hash-link" aria-label="Direct link to is_window_focused" title="Direct link to is_window_focused">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/RbxCli/eUNC/blob/dev/src/libraries/input.luau#L188"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>input<!-- -->.</code><code class="green_DgR4">is_window_focused</code><code>(</code><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>True if the window is currently focused.</p>
+</span></span></div><div>
+<p>Returns whether the Roblox window is currently in focus.</p>
+<h3>Remark:</h3>
+<p>
+  It is recommended to call this function before performing any input sequence.
+  The input library requires that Roblox be focused.
+</p>
+</div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;key_down&quot;,
+            &quot;desc&quot;: &quot;Presses and holds a keyboard key until key_up is called.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;The Virtual Key (VK) code of the key.&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Key is already pressed\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The key is already &#x27;held down&#x27;.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Invalid or unsupported key\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The VK code was invalid or is not supported.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 18,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;key_up&quot;,
+            &quot;desc&quot;: &quot;Releases a previously pressed keyboard key.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;The Virtual Key (VK) code of the key.&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Key is not pressed\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The key is already &#x27;released&#x27;.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Invalid or unsupported key\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The VK code was invalid or is not supported.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 29,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;key_click&quot;,
+            &quot;desc&quot;: &quot;Presses and releases a keyboard key in a single call.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;The Virtual Key (VK) code of the key.&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Invalid or unsupported key\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The VK code was invalid or is not supported.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 39,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;is_key_down&quot;,
+            &quot;desc&quot;: &quot;Returns whether the specified key is currently pressed according to the internal library state.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;The Virtual Key (VK) code of the key.&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;True if the key is currently held down.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Invalid or unsupported key\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The VK code was invalid or is not supported.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 50,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mouse_down&quot;,
+            &quot;desc&quot;: &quot;Presses and holds a mouse button.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;button&quot;,
+                    &quot;desc&quot;: &quot;The button code (e.g., 1 for Left, 2 for Right).&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Mouse button is already pressed\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The mouse button is already &#x27;held down&#x27;.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Invalid or unsupported mouse button\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The Mouse VK code was invalid or is not supported.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 63,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mouse_up&quot;,
+            &quot;desc&quot;: &quot;Releases a previously pressed mouse button.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;button&quot;,
+                    &quot;desc&quot;: &quot;The button code (e.g., 1 for Left, 2 for Right).&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Mouse button is not pressed\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The mouse button is already &#x27;released&#x27;.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Invalid or unsupported mouse button\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The Mouse VK code was invalid or is not supported.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 74,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;is_mouse_down&quot;,
+            &quot;desc&quot;: &quot;Returns whether the specified mouse button is currently pressed.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;button&quot;,
+                    &quot;desc&quot;: &quot;The button code.&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;True if the button is held down.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Invalid or unsupported mouse button\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The Mouse VK code was invalid or is not supported.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 85,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mouse_click&quot;,
+            &quot;desc&quot;: &quot;Performs one or more mouse clicks sequentially.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;button&quot;,
+                    &quot;desc&quot;: &quot;The button code.&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;count&quot;,
+                    &quot;desc&quot;: &quot;How many times to click (defaults to 1).&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Click count must be greater than 0\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The count parameter was less than 1 or equal to 0.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Invalid or unsupported mouse button\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The Mouse VK code was invalid or is not supported.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 99,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mouse_move_absolute&quot;,
+            &quot;desc&quot;: &quot;Moves the mouse cursor instantly to the given absolute screen position.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;position&quot;,
+                    &quot;desc&quot;: &quot;The absolute XY screen coordinates.&quot;,
+                    &quot;lua_type&quot;: &quot;Vector2&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 108,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mouse_move_relative&quot;,
+            &quot;desc&quot;: &quot;Moves the mouse cursor instantly by the given offset relative to its current position.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;offset&quot;,
+                    &quot;desc&quot;: &quot;The XY offset to move by.&quot;,
+                    &quot;lua_type&quot;: &quot;Vector2&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 117,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mouse_move_tween&quot;,
+            &quot;desc&quot;: &quot;Smoothly moves the mouse cursor to the target position over a period of time.\nThis function yields the current thread until the move is complete.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;position&quot;,
+                    &quot;desc&quot;: &quot;The target absolute XY position.&quot;,
+                    &quot;lua_type&quot;: &quot;Vector2&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;timeInSeconds&quot;,
+                    &quot;desc&quot;: &quot;The duration of the movement.&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Time must be a positive number\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The timeInSeconds parameter was not a positive number.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 129,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mouse_move_instance&quot;,
+            &quot;desc&quot;: &quot;Moves the mouse cursor instantly to the center of the given Roblox UI instance.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;instance&quot;,
+                    &quot;desc&quot;: &quot;The GuiObject to target.&quot;,
+                    &quot;lua_type&quot;: &quot;Instance&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Instance must be a valid UI Instance\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The object was not an Instance object of type GuiObject.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Instance is not visible or has no absolute position\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The GuiObject was not visible or had no absolute position.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 140,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mouse_move_instance_tween&quot;,
+            &quot;desc&quot;: &quot;Smoothly moves the mouse cursor to the center of the given Roblox UI instance.\nThis function yields the current thread until the move is complete.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;instance&quot;,
+                    &quot;desc&quot;: &quot;The GuiObject to target.&quot;,
+                    &quot;lua_type&quot;: &quot;Instance&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;timeInSeconds&quot;,
+                    &quot;desc&quot;: &quot;The duration of the movement.&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Instance must be a valid UI Instance\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The object was not an Instance object of type GuiObject.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Instance is not visible or has no absolute position\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The GuiObject was not visible or had no absolute position.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Time must be a positive number\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The timeInSeconds parameter was not a positive number.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 154,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mouse_click_instance&quot;,
+            &quot;desc&quot;: &quot;Moves the mouse cursor to the center of the given Roblox UI instance and performs a mouse click.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;instance&quot;,
+                    &quot;desc&quot;: &quot;The GuiObject to target.&quot;,
+                    &quot;lua_type&quot;: &quot;Instance&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;button&quot;,
+                    &quot;desc&quot;: &quot;The button VK code.&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Instance must be a valid UI Instance\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The object was not an Instance object of type GuiObject.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Invalid or unsupported mouse button\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The Mouse VK code was invalid or is not supported.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Instance is not visible or interactable\&quot;&quot;,
+                    &quot;desc&quot;: &quot;The GuiObject was not visible or isn&#x27;t interactable.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 167,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;mouse_scroll&quot;,
+            &quot;desc&quot;: &quot;Scrolls the mouse wheel by the given delta amount.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;delta&quot;,
+                    &quot;desc&quot;: &quot;The amount to scroll (positive for up, negative for down).&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;\&quot;Roblox is not focused\&quot;&quot;,
+                    &quot;desc&quot;: &quot;Roblox&#x27;s windows is not the focused window.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 176,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;is_window_focused&quot;,
+            &quot;desc&quot;: &quot;Returns whether the Roblox window is currently in focus.\n\n### Remark:\nIt is recommended to call this function before performing any input sequence. \nThe input library requires that Roblox be focused.&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;True if the window is currently focused.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 188,
+                &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [],
+    &quot;types&quot;: [],
+    &quot;name&quot;: &quot;input&quot;,
+    &quot;desc&quot;: &quot;The input library provides low-level simulation of keyboard and mouse events.\nInputs are synthesized to the Roblox window.&quot;,
+    &quot;tags&quot;: [
+        &quot;Library&quot;
+    ],
+    &quot;source&quot;: {
+        &quot;line&quot;: 7,
+        &quot;path&quot;: &quot;src/libraries/input.luau&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#is_key_down" class="table-of-contents__link toc-highlight">.is_key_down</a></li><li><a href="#is_mouse_down" class="table-of-contents__link toc-highlight">.is_mouse_down</a></li><li><a href="#is_window_focused" class="table-of-contents__link toc-highlight">.is_window_focused</a></li><li><a href="#key_click" class="table-of-contents__link toc-highlight">.key_click</a></li><li><a href="#key_down" class="table-of-contents__link toc-highlight">.key_down</a></li><li><a href="#key_up" class="table-of-contents__link toc-highlight">.key_up</a></li><li><a href="#mouse_click" class="table-of-contents__link toc-highlight">.mouse_click</a></li><li><a href="#mouse_click_instance" class="table-of-contents__link toc-highlight">.mouse_click_instance</a></li><li><a href="#mouse_down" class="table-of-contents__link toc-highlight">.mouse_down</a></li><li><a href="#mouse_move_absolute" class="table-of-contents__link toc-highlight">.mouse_move_absolute</a></li><li><a href="#mouse_move_instance" class="table-of-contents__link toc-highlight">.mouse_move_instance</a></li><li><a href="#mouse_move_instance_tween" class="table-of-contents__link toc-highlight">.mouse_move_instance_tween</a></li><li><a href="#mouse_move_relative" class="table-of-contents__link toc-highlight">.mouse_move_relative</a></li><li><a href="#mouse_move_tween" class="table-of-contents__link toc-highlight">.mouse_move_tween</a></li><li><a href="#mouse_scroll" class="table-of-contents__link toc-highlight">.mouse_scroll</a></li><li><a href="#mouse_up" class="table-of-contents__link toc-highlight">.mouse_up</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 RbxCli. Built with Moonwave and Docusaurus</div></div></div></footer></div>
+</body>
+</html>

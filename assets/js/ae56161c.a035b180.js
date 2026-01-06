@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[261],{84410:s=>{s.exports=JSON.parse('{"sourceUrl":"https://github.com/RbxCli/eUNC/blob/dev","baseUrl":"/eUNC/","classOrder":[{"section":"Libraries","tag":"Library"},{"section":"Classes","tag":"Class"},{"section":"Instances","tag":"Instances"}],"apiCategories":[]}')}}]);
