@@ -11,28 +11,31 @@ local memory = {}
 --- @class ProcessReadResult
 --- @tag Library
 --- Defines the read result statuses for memory reading operations.
-local ProcessReadResult = {
-	--- @prop PagedOut number
-	--- @within ProcessReadResult
-	--- @readonly
-	--- The memory region was outside of the process's Working Set.
-	PagedOut = 0,
-	--- @prop Successful number
-	--- @within ProcessReadResult
-	--- @readonly
-	--- The memory read was successful.
-	Successful = 1,
-	--- @prop Failed number
-	--- @within ProcessReadResult
-	--- @readonly
-	--- The memory read failed at the API level (Kernel/Win32).
-	Failed = 2,
-	--- @prop PartialRead number
-	--- @within ProcessReadResult
-	--- @readonly
-	--- The memory read was only completed partially, not completely (Kernel/Win32).
-	PartialRead = 3,
-}
+local ProcessReadResult = {}
+
+--- @prop PagedOut number
+--- @within ProcessReadResult
+--- @readonly
+--- The memory region was outside of the process's Working Set.
+ProcessReadResult.PagedOut = 0
+
+--- @prop Successful number
+--- @within ProcessReadResult
+--- @readonly
+--- The memory read was successful.
+ProcessReadResult.Successful = 1
+
+--- @prop Failed number
+--- @within ProcessReadResult
+--- @readonly
+--- The memory read failed at the API level (Kernel/Win32).
+ProcessReadResult.Failed = 2
+
+--- @prop PartialRead number
+--- @within ProcessReadResult
+--- @readonly
+--- The memory read was only completed partially, not completely (Kernel/Win32).
+ProcessReadResult.PartialRead = 3
 
 --- @class ProcessWriteResult
 --- @tag Library
