@@ -92,4 +92,47 @@ function eunc.display_notification(content: string, timeInSeconds: number?): () 
 ]=]
 function eunc.teleport_local_player(pos: Vector3): () end
 
+--[=[
+    Attempts to fire the .Touched event between two parts.
+
+    @param part0 BasePart -- The first part involved in the touch interaction.
+    @param part1 BasePart -- The second part involved in the touch interaction.
+    @param touchType number -- The type of touch interaction. 0 for Touch, 1 for Untouch.
+    @param replicate boolean? -- Whether or not to replicate the touch event to the server, defaults to true.
+
+    @error "touch must be either 0 (Touch) or 1 (Untouch)" -- touchType is not 0 or 1.
+    @error "neither of the parts to be 'touched' are owned. The event would not be fired, firing is unavailable." -- Neither part is owned by the local player, firing the event would have no effect.
+    @error "object was freed." -- One of the parts has been removed from the game.
+    @error "instance to fire may be type confused, firing is unavailable" -- One of the parts may be re-used heap memory, attempting to fire the event is unsafe and has been blocked.
+    @error "instance to fire is not a BasePart, firing is unavailable." -- One of the parts does not inherit from the BasePart class.
+    @error "instance to fire is not touchable, firing is unavailable." -- One of the parts has CanTouch set to false, .Touched would not be fireable.
+    @error "instance contains no physics object, firing is unavailable." -- One of the parts contains an invalid 'Primitive' object. Firing the event is unsafe and has been blocked.
+
+    ### Warning
+
+    This feature depends on 'Hybrid mode' being enabled, with it disabled, the function will be unavailable.
+
+    @within rbxcli
+]=]
+function eunc.firetouchinterest(part0: BasePart, part1: BasePart, touchType: number, replicate: boolean?): () end
+
+--[=[
+    Attempts to fire the .Triggered event of the provided ProximityPrompt.
+
+    @param orompt ProximityPrompt -- The prompt to fire.
+
+    @error "object was freed." -- The object has been removed from the game.
+    @error "instance to fire may be type confused, firing is unavailable" -- The object may be re-used heap memory, attempting to fire the event is unsafe and has been blocked.
+    @error "instance to fire is not a ProximityPrompt, firing is unavailable." --  The provided instance is not a ProximityPrompt.
+
+    ### Warning
+    This feature depends on 'Hybrid mode' being enabled, with it disabled, the function will be unavailable.
+
+    ### Information
+    This function provides no way to simulate the hold duration of a ProximityPrompt, it will always trigger the prompt as if it were tapped and if the duration was 0. This can be detected by fancier anticheat systems, as the necessary events would not be fired appropriately.
+
+    @within rbxcli
+]=]
+function eunc.fireproximityprompt(orompt: ProximityPrompt): () end
+
 return eunc
