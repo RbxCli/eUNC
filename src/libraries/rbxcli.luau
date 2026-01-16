@@ -129,7 +129,9 @@ function eunc.firetouchinterest(part0: BasePart, part1: BasePart, touchType: num
     This feature depends on 'Hybrid mode' being enabled, with it disabled, the function will be unavailable.
 
     ### Information
-    This function provides no way to simulate the hold duration of a ProximityPrompt, it will always trigger the prompt as if it were tapped and if the duration was 0. This can be detected by fancier anticheat systems, as the necessary events would not be fired appropriately.
+    This function provides no way to simulate the hold duration of a ProximityPrompt, it will always trigger the prompt as if it were tapped and if the duration was 0. This can be detected by fancier anticheat systems, as the necessary events that go before and/or after the `.Triggered` event, such as `.PromptButtonHoldBegan`, `.PromptButtonHoldEnded` or `.TriggerEnded` would not be fired appropriately.
+
+    Due to this, use this function with caution when dealing with fancier anticheats.
 
     @within rbxcli
 ]=]
