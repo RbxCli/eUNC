@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[3604],{68323:t=>{t.exports=JSON.parse('{"functions":[],"properties":[],"types":[],"name":"entity","desc":"Contains functions that allow interacting with the Entity API to create NPC search paths, \'validation trees\' and more.","tags":["Library"],"source":{"line":6,"path":"src/libraries/entity.luau"}}')}}]);

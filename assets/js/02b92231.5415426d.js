@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[3758],{51924:e=>{e.exports=JSON.parse('[{"value":"Properties","id":"properties","level":2},{"value":"build","id":"build","level":3},{"value":"built_for_roblox_version","id":"built_for_roblox_version","level":3},{"value":"name","id":"name","level":3},{"value":"version","id":"version","level":3}]')}}]);
