@@ -56,7 +56,7 @@ basePart.Size = Vector3.new()
 basePart.IsNetworkOwner = false
 
 --[=[
-    @prop IsNetworkOwner boolean
+    @prop NetworkIsSleeping boolean
     @within BasePart
     
     Whether or not the Part is reported as sleeping for physics replication.

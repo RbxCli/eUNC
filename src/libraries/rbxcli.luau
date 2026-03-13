@@ -23,7 +23,7 @@ productInfo.name = ""
 
     `[beta/alpha]` may not be present if the build is considered a stable, released build. 
 
-    @prop build string
+    @prop version string
     @within ProductInformation
 ]=]
 productInfo.version = ""
